@@ -1,7 +1,7 @@
 # LeagueofLegends-Project
 Using Python I have extracted a large amount of data from Riot Games API, and the end goal is to practice using Pandas using a real, accurate dataset, with the hopes of creating something useful.
 Jumping into this project took me a while, I had no idea how to make API calls, what kwargs are or even how to structure a function.
-I have practiced reading and writing to CSV files using solely python, imrpoved my programming logic and realised the fact that efficient code is paramount.
+I have practiced reading and writing to CSV files using solely python, improved my programming logic and realised the fact that efficient code is paramount.
 
 I have already found a use case for my project and the amount of data I am looking to scrape.
 For context, League of Legends matches are played with 10 players. Everyone has a public Summoner name, and a backend user ID. 
