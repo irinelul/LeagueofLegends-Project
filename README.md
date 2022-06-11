@@ -12,12 +12,25 @@ By scraping through thousands of games, I noticed that you can track and trace w
 You can see the start date of when I had a particular name. When the summoner name switches, that's the month when I changed it.
 
 There is currently **NO** website that tracks this, I find it interesting. 
-
-Several of the players that I met throughout my 800+ games changed their name at one point, and I met them again under a different name. 
-My current goal:
--> For all of my 800 games I want to extract all game history of all other participants:
-  -> This means 7200 players.
-  -> For all players, I think I will be able to extract 500-600 games for each one.
-  -> In total 420,000 games will be stored and analyzed for this project, and seeing which players have changed their name, and when.
   
 Besides this programming goal, my intention is to practice pandas, and start making some graphs, plots, etc. rather than excel.
+
+Update 11th June 2022:
+This project took a sudden and scaled up turn.
+I wanted to keep this project running 24/7 and keep scraping games and gathering data.
+As such, I learned how to use Google Cloud's tools, especially VM.
+After setting up the VM, I wasnt't satisfied with how the project worked, it was very annoying to have to pull the data from VM everytime.
+
+As such, I connected the project to google Psql daabase.
+
+Starting from my math history, I now have over 500,000 games stored and indexed in my database. 
+
+Wrote the code that for every game I index, I also keep track of the participant's ID, thus allowing me to branch out furter with every iteration of indexing. 
+
+The scheme is as such:
+-> Initial 800 games from me
+800 games * 9 other players = 7200 players (if we don't consider duplicates)
+7200 players * 800 games = 5,760,000 games 
+5,760,000 games * 10 players = 57,600,000 games. 
+
+Currently, the main issue is that I'm pulling duplicate games, and I haven't gotten around to finding a solution as to how to check if I already indexed that game. Possibly keeping a local copy of all indexed games and before writing games checking against it, but I want a more efficient solution.
