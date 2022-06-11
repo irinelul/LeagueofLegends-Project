@@ -21,9 +21,9 @@ I wanted to keep this project running 24/7 and keep scraping games and gathering
 As such, I learned how to use Google Cloud's tools, especially VM.
 After setting up the VM, I wasnt't satisfied with how the project worked, it was very annoying to have to pull the data from VM everytime.
 
-As such, I connected the project to google Psql daabase.
+As such, I connected the project to google Psql database.
 
-Starting from my math history, I now have over 500,000 games stored and indexed in my database. 
+Starting from my match history, I now have over 500,000 games stored and indexed in my database. 
 
 Wrote the code that for every game I index, I also keep track of the participant's ID, thus allowing me to branch out furter with every iteration of indexing. 
 
