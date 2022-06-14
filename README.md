@@ -34,3 +34,8 @@ The scheme is as such:
 5,760,000 games * 10 players = 57,600,000 games. 
 
 Currently, the main issue is that I'm pulling duplicate games, and I haven't gotten around to finding a solution as to how to check if I already indexed that game. Possibly keeping a local copy of all indexed games and before writing games checking against it, but I want a more efficient solution.
+
+
+Solved the duplicates issue by using pandas, pretty simple. Right now I have about 900k (unique) games to go through. 
+
+Currently, I have over 1.3 million entires in my database, so over 130k games already parsed, at 100 requests / 2 minutes.
