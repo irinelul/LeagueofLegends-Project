@@ -39,3 +39,11 @@ Currently, the main issue is that I'm pulling duplicate games, and I haven't got
 Solved the duplicates issue by using pandas, pretty simple. Right now I have about 900k (unique) games to go through. 
 
 Currently, I have over 1.3 million entires in my database, so over 130k games already parsed, at 100 requests / 2 minutes.
+
+
+Update 21st July:
+We've passed 10 million entires in our database. 
+I got approved for a personal API (which means it's running 24/7! yay!)
+Currrently we have 2,308,884 unique players 
+
+Migrated SQL from google cloud to a vm entity, will see how the cost turns out to be.. still having some free credits left.
