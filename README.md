@@ -58,19 +58,23 @@ Few sample queries:
 Presenting
 ->
 It all starts with a dynamic query:
-SELECT * FROM "League" WHERE "Puuid" IN 
-                             (SELECT "Puuid" FROM "League" WHERE "Name" IN ('ZERI OR ZERO')
+
+  SELECT * FROM "League" WHERE "Puuid" IN 
+                               (SELECT "Puuid" FROM "League" WHERE "Name" IN ('ZERI OR ZERO')
+                             
 In this way, a player can insert his name, and the query will select the player ID. This allows the query to interrogate the entire match history, rather than only games that contain that particular name.
-SELECT
-    DISTINCT min("GameDate") as "First Game",max("GameDate") as "Last Game","Puuid","Name"
-FROM
-    "League"
-WHERE
-    "Puuid" NOT IN ('BOT')
-GROUP BY
-    "Puuid","Name"
-HAVING "Puuid" IN (SELECT "Puuid" FROM "League" GROUP BY "Puuid" HAVING count(DISTINCT "Name")>10)
-ORDER BY "Puuid","Name" desc;
+
+  SELECT
+      DISTINCT min("GameDate") as "First Game",max("GameDate") as "Last Game","Puuid","Name"
+  FROM
+      "League"
+  WHERE
+      "Puuid" NOT IN ('BOT')   
+  GROUP BY
+      "Puuid","Name"
+  HAVING "Puuid" IN (SELECT "Puuid" FROM "League" GROUP BY "Puuid" HAVING count(DISTINCT "Name")>10)
+  ORDER BY "Puuid","Name" desc;
+
 This code will interrogate the database and search for player’s name history, allowing me to see a history of the player’s name, as well as a history of the dates that the name was used on.
 This is only searching for players that had 10 or more names throughout their history.
 (This works best if the entire match history of a player has been parsed)
@@ -84,17 +88,20 @@ AND "Puuid" NOT IN ('BOT')
 GROUP BY "GameDate","Name","Puuid"
 HAVING count("Puuid") > 40
 ORDER BY count("Puuid") DESC;
+
 This query will interrogate the database and return players that have played over 40 games in a single day, as well as the count and the date.
 Output:
  
 ![image](https://user-images.githubusercontent.com/16565764/186248252-3870f4c0-a512-4860-acec-c8d3be330e20.png)
 
 
+`SELECT count("Champion") as gamesplayed,(select distinct count("GameID") from "League") as total_games_recorded,`
 
-SELECT count("Champion") as gamesplayed,(select distinct count("GameID") from "League") as total_games_recorded,
-       (count("Champion") / SUM(count("GameID"))OVER ()*100) AS "% of total","Champion"
-FROM "League"
-GROUP BY "Champion"  ORDER BY count("Champion") desc;
+`(count("Champion") / SUM(count("GameID"))OVER ()*100) AS "% of total","Champion"  FROM "League"`
+
+`GROUP BY "Champion"  ORDER BY count("Champion") desc;`
+
+
 This query checks how many games a Champion participated in compared to the entire database.
 It will return the Name of the Champion, as well as the play rate in percentages.
 Output:
